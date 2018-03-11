@@ -1,0 +1,94 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7169BFF4-0BEF-4EE8-862D-AA272C886895}"
+	ProjectSection(SolutionItems) = preProject
+		config.json = config.json
+		config.json.example = config.json.example
+		CREDITS.md = CREDITS.md
+		forever.sh = forever.sh
+		init.js = init.js
+		package.json = package.json
+		pool.sh = pool.sh
+		README.md = README.md
+		startpool.sh = startpool.sh
+		startserver.sh = startserver.sh
+		test.sh = test.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "website", "website", "{80094401-6BCA-41CA-99A3-CFB454C027D5}"
+	ProjectSection(SolutionItems) = preProject
+		website\index.html = website\index.html
+		website\key.html = website\key.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "pages", "pages", "{9CD8988F-41E5-46C9-8E83-27B737FAF921}"
+	ProjectSection(SolutionItems) = preProject
+		website\pages\about.html = website\pages\about.html
+		website\pages\admin.html = website\pages\admin.html
+		website\pages\api.html = website\pages\api.html
+		website\pages\getting_started.html = website\pages\getting_started.html
+		website\pages\home.html = website\pages\home.html
+		website\pages\markets.html = website\pages\markets.html
+		website\pages\miner.html = website\pages\miner.html
+		website\pages\miner_stats.html = website\pages\miner_stats.html
+		website\pages\mining_key.html = website\pages\mining_key.html
+		website\pages\news.html = website\pages\news.html
+		website\pages\stats.html = website\pages\stats.html
+		website\pages\tbs.html = website\pages\tbs.html
+		website\pages\wallet.html = website\pages\wallet.html
+		website\pages\workers.html = website\pages\workers.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{5686E576-DE83-4E7E-88E4-8E60665FB691}"
+	ProjectSection(SolutionItems) = preProject
+		libs\api.js = libs\api.js
+		libs\apiBittrex.js = libs\apiBittrex.js
+		libs\apiCoinWarz.js = libs\apiCoinWarz.js
+		libs\apiPoloniex.js = libs\apiPoloniex.js
+		libs\apiYobit.js = libs\apiYobit.js
+		libs\cliListener.js = libs\cliListener.js
+		libs\logUtil.js = libs\logUtil.js
+		libs\mposCompatibility.js = libs\mposCompatibility.js
+		libs\paymentProcessor.js = libs\paymentProcessor.js
+		libs\poolWorker.js = libs\poolWorker.js
+		libs\profitSwitch.js = libs\profitSwitch.js
+		libs\shareProcessor.js = libs\shareProcessor.js
+		libs\stats.js = libs\stats.js
+		libs\website.js = libs\website.js
+		libs\workerapi.js = libs\workerapi.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "node_modules", "node_modules", "{5C9EAB01-C64F-43ED-9893-5C18CE7B3936}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "merged_pooler", "merged_pooler", "{ECA720A4-89B1-4900-B13C-9E854D87E524}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{EDCE9F8F-9B95-4247-A048-7E6E83F087A4}"
+	ProjectSection(SolutionItems) = preProject
+		node_modules\merged-pooler\lib\algoProperties.js = node_modules\merged-pooler\lib\algoProperties.js
+		node_modules\merged-pooler\lib\blockTemplate.js = node_modules\merged-pooler\lib\blockTemplate.js
+		node_modules\merged-pooler\lib\daemon.js = node_modules\merged-pooler\lib\daemon.js
+		node_modules\merged-pooler\lib\index.js = node_modules\merged-pooler\lib\index.js
+		node_modules\merged-pooler\lib\jobManager.js = node_modules\merged-pooler\lib\jobManager.js
+		node_modules\merged-pooler\lib\merkleTree.js = node_modules\merged-pooler\lib\merkleTree.js
+		node_modules\merged-pooler\lib\peer.js = node_modules\merged-pooler\lib\peer.js
+		node_modules\merged-pooler\lib\pool.js = node_modules\merged-pooler\lib\pool.js
+		node_modules\merged-pooler\lib\stratum.js = node_modules\merged-pooler\lib\stratum.js
+		node_modules\merged-pooler\lib\transactions.js = node_modules\merged-pooler\lib\transactions.js
+		node_modules\merged-pooler\lib\util.js = node_modules\merged-pooler\lib\util.js
+		node_modules\merged-pooler\lib\varDiff.js = node_modules\merged-pooler\lib\varDiff.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{80094401-6BCA-41CA-99A3-CFB454C027D5} = {7169BFF4-0BEF-4EE8-862D-AA272C886895}
+		{5686E576-DE83-4E7E-88E4-8E60665FB691} = {7169BFF4-0BEF-4EE8-862D-AA272C886895}
+		{5C9EAB01-C64F-43ED-9893-5C18CE7B3936} = {7169BFF4-0BEF-4EE8-862D-AA272C886895}
+		{9CD8988F-41E5-46C9-8E83-27B737FAF921} = {80094401-6BCA-41CA-99A3-CFB454C027D5}
+		{ECA720A4-89B1-4900-B13C-9E854D87E524} = {5C9EAB01-C64F-43ED-9893-5C18CE7B3936}
+		{EDCE9F8F-9B95-4247-A048-7E6E83F087A4} = {ECA720A4-89B1-4900-B13C-9E854D87E524}
+	EndGlobalSection
+EndGlobal

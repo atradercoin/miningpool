@@ -1,0 +1,120 @@
+<div class="row">
+   <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+	{{ for(var pool in it.stats.pools) { }}
+
+      {{var workerstat = it.stats.pools[pool].workers[it.stats.address];}}
+		{{if (workerstat) { }}
+
+
+      <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-editbutton="false">
+		   <header>
+			   <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+				<h2> Worker Statistics - {{=it.stats.pools[pool].name}}</h2>
+			</header>
+			<div class="jarviswidget-editbox"></div>
+			   <div class="widget-body">
+				      <div class="table-responsive">
+						   <table class="table table-bordered">
+							<thead>
+							   <tr>
+								   <th>Address</th>
+									<th>Shares</th>
+									<th>Invalid shares</th>
+									<th>Efficiency</th>
+									<th>Hashrate</th>
+								</tr>
+								</thead>
+							<tbody>
+							<tr>
+
+                        {{var workerstat = it.stats.pools[pool].workers[it.stats.address];}}
+
+                        <tr>
+								   <td>{{=it.stats.address}}</td>
+									<td>{{=Math.floor(workerstat.shares)}}</td>
+									<td>{{=Math.floor(workerstat.invalidshares)}}</td>
+									<td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+									<td>{{=workerstat.hashrateString}}</td>
+								</tr>
+
+                     </tr>
+							</tbody>
+							</table>
+						</div>
+				</div>
+			</div>
+		</div>
+		{{ } }}
+		{{ } }}
+
+
+      <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-editbutton="false">
+		   <header>
+			   <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+				<h2> Worker Statistics - Balance</h2>
+			</header>
+			<div class="jarviswidget-editbox"></div>
+			   <div class="widget-body">
+				      <div class="table-responsive">
+						   <table class="table table-bordered">
+							<thead>
+							   <tr>
+								   <th>Address</th>
+									<th>Balance</th>
+								</tr>
+								</thead>
+							<tbody>
+							<tr>
+							   <tr>
+								   <td>{{=it.stats.address}}</td>
+									{{ for(var balance in it.stats.balances) { }}
+									   {{ if (it.stats.balances[balance].balance < 0) { }}
+										{{ } else { }}
+										<td>{{=it.stats.balances[balance].balance}}</td>
+										{{ } }}
+									{{ } }}
+								</tr>
+							</tr>
+							</tbody>
+							</table>
+						</div>
+				</div>
+		</div>
+
+      <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-editbutton="false">
+		   <header>
+			   <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+				<h2> Worker Statistics -Paid Out</h2>
+			</header>
+			<div class="jarviswidget-editbox"></div>
+			   <div class="widget-body">
+				      <div class="table-responsive">
+						   <table class="table table-bordered">
+							<thead>
+							   <tr>
+								   <th>Address</th>
+									<th>Payout</th>
+								</tr>
+							</thead>
+							<tbody>
+							<tr>
+							   <tr>
+								   <td>{{=it.stats.address}}</td>
+									{{ for(var balance in it.stats.balances) { }}
+									{{ if (it.stats.balances[balance].paid <= 0) { }}
+									{{ } else { }}
+									<td>{{=it.stats.balances[balance].paid}}</td>
+									{{ } }}
+									{{ } }}
+								</tr>
+								</tr>
+							</tbody>
+							</table>
+						</div>
+				</div>
+			</div>
+
+
+   </article>
+</div>
+

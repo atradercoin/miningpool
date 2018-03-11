@@ -1,0 +1,55 @@
+<script type="text/javascript">
+        function codeAddress() {
+            alert('ok');
+        }
+        window.onload = displaycharts();
+</script>
+
+<div class="row">
+      <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-editbutton="false">
+                        <header>
+                                <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                                <h2>Market Prices</h2>
+                        </header>
+                        <div>
+                                <div class="jarviswidget-editbox">
+                                </div>
+                                <div class="widget-body">
+                                        <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                        <thead>
+                                                                <tr>
+                                                                    <th>CryptoCurrency</th>
+                                                                    <th>Price</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                    <td>
+                                                                    <li>BTC</li>
+                                                                    </td>
+                                                            </tr>
+                                                            <tr>
+                                                                    <td>
+                                                                    <li>LTC</li>
+                                                                    </td>
+                                                             </tr>
+                                                             <tr>
+                                                                    <td>
+                                                                    <li>ETH</li>
+                                                                    </td>
+
+                                                             </tr>
+                                                        </tbody>
+                                                </table>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+        </article>
+</div>
+
+<script>
+    document.querySelector('main').appendChild(document.createElement('script')).src = '/static/highcharts.js';
+</script>

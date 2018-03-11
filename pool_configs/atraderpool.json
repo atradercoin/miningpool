@@ -1,0 +1,73 @@
+{
+    "enabled": true,
+    "coin": "atradercoin.json",
+
+    "auxes":
+    [
+    ],
+    "address": "SivyTvtDLx6D18iQPGZHhL8eSi4BqCtEGU",
+
+    "rewardRecipients": {
+        "SivyTvtDLx6D18iQPGZHhL8eSi4BqCtEGU": 1
+    },
+
+    "paymentProcessing": {
+        "enabled": true,
+        "paymentInterval": 60,
+        "minimumPayment": 100,
+        "daemon": {
+            "host": "127.0.0.1",
+            "port": 8371,
+            "user": "atrader",
+            "password": "1234"
+        }
+    },
+
+    "ports": {
+        "3009": {
+            "diff": 1,
+            "varDiff": {
+                "minDiff": 1,
+                "maxDiff": 512,
+                "targetTime": 15,
+                "retargetTime": 90,
+                "variancePercent": 30
+            }
+        },
+        "3033": {
+            "diff": 69
+
+        },
+        "3257": {
+            "diff": 256
+        }
+    },
+
+    "daemons": [
+        {
+            "host": "127.0.0.1",
+            "port": 8371,
+            "user": "atrader",
+            "password": "1234"
+        }
+    ],
+
+    "p2p": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 8370,
+        "disableTransactions": false
+    },
+
+    "mposMode": {
+        "enabled": false,
+        "host": "127.0.0.1",
+        "port": 3306,
+        "user": "me",
+        "password": "mypass",
+        "database": "ltc",
+        "checkPassword": false,
+        "autoCreateWorker": false
+    }
+
+}

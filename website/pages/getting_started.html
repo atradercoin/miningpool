@@ -1,0 +1,116 @@
+<div class="row">
+	<article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-editbutton="false">
+			<header>
+				<span class="widget-icon"> <i class="fa fa-table"></i> </span>
+				<h2>Getting Started</h2>
+			</header>
+			<div>
+				<div class="jarviswidget-editbox">
+				</div>
+				<div class="widget-body">
+					<div class="table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Coin Name</th>
+									<th>Coin Symbol</th>
+									<th>Coin Algorithm</th>
+									<th>Stratum Host</th>
+									<th>Stratum Ports & Diff</th>
+								</tr>
+							</thead>
+							<tbody>
+							{{ for(var pool in it.poolsConfigs) { }}
+							<tr>
+								<td>{{=it.poolsConfigs[pool].coin.name}}</td>
+								<td>{{=it.poolsConfigs[pool].coin.symbol}}</td>
+								<td>{{=it.poolsConfigs[pool].coin.algorithm}}</td>
+                                                                <td>{{=it.portalConfig.website.stratumHost}}</td>
+								<td>
+								{{ for (var port in it.poolsConfigs[pool].ports) { }}
+									Port: {{=port}},
+									Diff: {{=it.poolsConfigs[pool].ports[port].diff}}
+								{{ } }}
+								</td>
+							</tr>
+							{{ } }}	
+            						</tbody>	
+						</table>		
+					</div>
+				</div>
+
+
+           <p>This guide will cover how to set up your wallet and which ports to use at the pool. It will also cover how to configure various mining software on your computer. You will also find information about Minera, a front end mining platform that comes pre-configured with all of the relevant software. Lastly there is a detailed introduction to Nicehash and how to use it on this pool. Installing mining software is beyond the scope of this guide. There are plenty of resources available on the internet with detailed information on how to do this for your specific platform and hardware.</p><br />
+
+           <h4>First things</h4><br />
+			    <ul>
+				   <li>Create a Wallet address. This avoids payment issues and makes sure that your payments are going to a valid address. If you don't already have one you can download a wallet for your OS here</a>.</li>
+					<li><a href="/wallet"><strong>Wallet</strong></a></li>
+				 </ul>
+			  <br /><br />
+			  <h4>Download a miner compatible with your hardware and operating system</h4><br />
+			    <ul>
+				   <li><a href="https://github.com/pooler/cpuminer/releases" target="_blank"><strong>Minerd 2.5</strong></a>(with CPU support) <em>Windows, Linux</em></li>
+					<li><a href="https://cryptomining-blog.com/2924-cgminer-4-3-5-with-gridseed-and-zeus-scrypt-asic-support/" target="_blank"><strong>CGMiner 4.3.5</strong></a> (with AMD GPU and ASIC support) <em>Windows</em></li>
+					<li><a href="http://ck.kolivas.org/apps/cgminer/3.7/cgminer-3.7.0.tar.bz2" target="_blank"><strong>CGMiner 4.3.5</strong></a> (with AMD GPU and ASIC support) <em>Linux</em></li>
+					<li><a href="https://bitcointalk.org/index.php?topic=167229.0" target="_blank"><strong>NVIDIA Cudaminer</strong></a> <em>Mac / Windows / Linux</em></li>
+					<li><a href="https://getminera.com/" target="_blank"><strong>Minera</strong></a> <em>ASICS on Linux / Raspberry Pi</em></li>
+				 </ul>
+
+           <h4>Configure your miner</h4><br />
+			  <ul>
+
+           <li>For <strong>Minerd</strong></li>
+			  <pre>minerd --algo=scrypt --scantime=99 --url=stratum+tcp://atradercoin.ddns.net:<em>PORT</em> --userpass=WalletAddress:WorkerPassword --retries=-1</pre>
+			  <br />
+
+           <p>If you're using <strong>CGMiner</strong> on <strong>Linux</strong> type the following into the console:</p>
+
+           <pre>./cgminer --scrypt -o stratum+tcp://atradercoin.ddns.net:<em>PORT</em> -u <em>WalletAddress</em> -p <em>WorkerPassword</em></pre>
+
+           <p> If you're using <strong> Windows</strong> you'll need to create a batch file to start your miner. </p><p> Simply open notepad and then copy and paste the following:</p>
+			  <li>For <strong>CGMiner</strong></li>
+			  <pre>cgminer --scrypt -o stratum+tcp://atradercoin.ddns.net:<em>PORT</em> -u <em>WalletAddress</em> -p <em>WorkerPassword</em></pre>
+
+           <p>If you're using <strong>CGMiner</strong> on <strong>Linux</strong> type the following into the console:</p>
+
+           <pre>./cgminer --scrypt -o stratum+tcp://atradercoin.ddns.net:<em>PORT</em> -u <em>WalletAddress</em> -p <em>WorkerPassword</em></pre>
+
+           <li>For <strong>Cudaminer</strong></li>
+			  <pre>cudaminer -o stratum+tcp://atradercoin.ddns.net:<em>PORT</em> -u <em>WalletAddress</em> -p <em>WorkerPassword</em></pre>
+			  <br />
+			  <p> You will need to replace "-u WalletAddress -p WorkerPassword" to reflect your own account :</p>
+
+
+
+           <li><strong>WalletAddress</strong> = Your Wallet Address</li>
+			  <li><strong>WorkerPassword</strong> = A password </li> <br />
+			  <em>Example:</em> -u walletaddress -p x <br />
+
+           <p>You will also need to replace PORT with the correct setting for your hardware :</p>
+			  <p><strong>3009</strong> (CPU / GPU)<br /><strong>3033</strong> GPU Rack or (ASIC)<br /><strong>3257</strong> ASIC<br /></p>
+
+           <p>Port <strong>3033</strong> has variable difficulty adjustments so if you are unsure of your hash power use this port.</p>
+
+           <em>Example:</em> stratum+tcp://atradercoin.ddns.net:3032 <br /><br />
+
+           <li>Complete example using the ASIC port with CGMiner</li>
+			  <pre>cgminer --scrypt -o stratum+tcp://atradercoin.ddns.net:3256 -u "a-wallet-address" -p x</pre>
+
+           <p>Then go to "File > Save as" and save the file as "Mine.bat" in the same folder containing your miners application files. You are now ready to mine, double click on "Mine.bat" to start mining. </p>
+
+           <br />
+
+            <h4>Additional Info</h4><br />
+				<ul>
+
+            <li>Difficulty</li>
+				<pre>Difficulty is retargetted every 15mins. If a block is taking a long time to mine, it could be that the CPU power isnt sufficient to mine the coin. In this case it will take longer than normal, but will retarget once a block is found.</pre>
+				<br />
+
+
+			</div>
+		</div>
+	</article>
+</div>

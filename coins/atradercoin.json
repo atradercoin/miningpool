@@ -1,0 +1,7 @@
+{
+    "name": "atradercoin",
+    "symbol": "ATC",
+    "algorithm": "scrypt",
+    "peerMagic": "fDc0b9db",
+    "peerMagicTestnet": "fEc0b9db"
+}

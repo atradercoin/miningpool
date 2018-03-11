@@ -1,0 +1,50 @@
+<div class="row">
+        <article class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		{{ for(var pool in it.stats.pools) { }}
+                <div class="jarviswidget jarviswidget-color-blueDark" id="wid-id-0" data-widget-editbutton="false">
+                        <header>
+                                <span class="widget-icon"> <i class="fa fa-table"></i> </span>
+                                <h2> Worker Statistics - {{=it.stats.pools[pool].name}}</h2>
+                        </header>
+                        <div>
+                                <div class="jarviswidget-editbox">
+                                </div>
+                                <div class="widget-body">
+                                        <div class="table-responsive">
+                                                <table class="table table-bordered">
+                                                        <thead>
+                                                        <tr>
+                						                    <th>Address</th>
+						                                    <th>Shares</th>
+        						                            <th>Invalid shares</th>
+                						                    <th>Efficiency</th>
+               							                    <th>Hashrate</th>
+                                                         </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                         {{ for(var worker in it.stats.pools[pool].workers) { }}
+                                                         {{var workerstat = it.stats.pools[pool].workers[worker];}}
+                    							            <tr>
+							                                    <td><li><a href="/miner/{{=worker}}" <span class="menu-item-parent">{{=worker}}</a></li></td>
+                        							            <td>{{=Math.floor(workerstat.shares)}}</td>
+                        							            <td>{{=Math.floor(workerstat.invalidshares)}}</td>
+                        							            <td>{{? workerstat.shares > 0}} {{=Math.floor(10000 * workerstat.shares / (workerstat.shares + workerstat.invalidshares)) / 100}}% {{??}} 0% {{?}}</td>
+                        							            <td>{{=workerstat.hashrateString}}</td>
+                    							            </tr>
+                    							         </tbody>
+                    							         {{ } }}
+                                                </table>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+	{{ } }}
+        </article>
+		  <ul><li>VALID SHARES - Shares which are added to your count and contribute towards payments</li></ul>
+		  <ul><li>INVALID SHARES - Shares which are do not contribute towards payments. Note invalid shares can include shares that are recieved after a block is submitted. In the case of ASIC miners who rapidly contribute shares, a miner can submit many more shares, until it is notified that a job is complete, due to internet latency.</li></ul>
+		  <ul><li>EFFICIENCY - % of shares that are counted to payment.</li></ul>
+		  <ul><li>HASHRATE - Your 'ESTIMATED' hash rate. It may be much higher lower than the quoted figure and is just a guide.</li></ul>
+		  <ul><li>To show your stats when not currently mining enter your wallet address on the miner page.</li></ul>
+
+</div>
+

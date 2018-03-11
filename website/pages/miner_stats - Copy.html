@@ -1,0 +1,98 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<style>table,th,td{border:3px solid black;border-style:solid;border-color:#000}#timeSelector{padding-top:25px;padding-bottom:15px;text-align:center}#bottomCharts{padding:18px}#bottomCharts>div>div>svg{display:block;height:280px}.chartWrapper{border:solid 1px #c7c7c7;width:95%;padding:5px;margin-bottom:18px;display:block;text-align:-webkit-center}.chartWrapper2{border:solid 7px #000000;padding:5px;width:30%;margin-bottom:18px;display:block;text-align:-webkit-center}#bottomTableStats{padding-bottom:20px}#statTable{margin:0 auto;text-align:center;text-transform:capitalize}</style>
+<meta http-equiv="refresh" content="600">
+
+<center>
+    <div class="row">
+       <div class="col-md-6">{{? it.stats.balances }}
+
+                <div class="row"> </div>
+                <div class="row">
+                <div class="panel panel-default">
+                        <div class="chartWrapper">
+                            <div class="chartLabel"><h2><strong>Miner Stats</strong></h2></div>
+                            <div class="panel-heading"> <h2><strong><span id="address">{{=it.stats.address}}<span></strong> </h2></div>
+                            {{ for(var pool in it.stats.pools) { }}
+                                {{ var workerstat = it.stats.pools[pool].workers[it.stats.address];}}
+                                {{ if (it.stats.pools[pool].algorithm == "scrypt") { }}
+                                    {{if (workerstat) { }}
+                            <div class="pure-u-1-2"><b>{{=it.stats.pools[pool].name}}</b> {{=workerstat.hashrateString}}</div><br><br>
+                                {{ } }}
+                                {{ } }}
+                            {{ } }}
+                            </div>
+                          </div>
+                </div>
+        </div>
+    </div> <!-- end row -->
+</center>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+    <!-- content -->
+        <div class="row">
+
+        <!-- main col left -->
+        <div class="col-sm-12">
+        <div class="chartWrapper">
+                               <div class="chartLabel"><h2><strong>Balances:</strong></h2></div>
+                    <div class="panel panel-default">
+                            <div class="panel-body">
+                        <div class="stat-panel row">
+                                                              {{ for(var balance in it.stats.balances) { }}
+                                                              {{if (it.stats.balances[balance].balance <= 0) { }}
+                                                              {{ } else { }}
+                            <div class="pure-u-1-5">
+                            <div class="panel panel-default col-md-2 col-xs-4">
+                            <div class="panel-heading" style="background-color:#3d3d3d;color:white;"><center><span class="text-xs"> {{=it.stats.balances[balance].coin}}</span></center></div>
+                            <div class="panel-body"><span class="text-bg"><strong>{{=it.stats.balances[balance].balance}}</strong></span> &nbsp</div>
+                            </div>
+                        </div>
+
+                                                              {{ } }}
+                                                              {{ } }}
+                                                                               </div>
+                                                                               <br><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="chartWrapper">
+                               <div class="chartLabel"><h2><strong>Paid:</strong></h2></div>
+                        <div class="stat-panel row">
+                                                              {{ for(var balance in it.stats.balances) { }}
+                                                              {{if (it.stats.balances[balance].paid <= 0) { }}
+                                                              {{ } else { }}
+                            <div class="pure-u-1-5">
+                            <div class="panel panel-default col-md-2 col-xs-4">
+                            <div class="panel-heading" style="background-color:#3d3d3d;color:white;"><center><span class="text-xs"> {{=it.stats.balances[balance].coin}}</span></center></div>
+                            <div class="panel-body"><span class="text-bg"><strong>{{=it.stats.balances[balance].paid}}</strong></span> &nbsp</div>
+                            </div>
+                            </div>
+                                                              {{ } }}
+                                                              {{ } }}
+                                                                               </div>
+                                                                               <br><br>
+                        </div>
+
+                </div>
+
+
+
+
+</div>
+{{?}}
+
+
+
+
+
+
+</center>
